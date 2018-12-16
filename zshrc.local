@@ -22,7 +22,7 @@ fi
 
 export KEYTIMEOUT=5 #lower delay for vim mode switches
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 export PGDATA=/usr/local/var/postgres
 
 if [[ -a ~/.localrc ]]
