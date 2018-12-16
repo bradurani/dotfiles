@@ -107,16 +107,18 @@ serve() {
   python2 -m SimpleHTTPServer "$@"
 }
 
-source <(kubectl completion zsh)
+if ! [ -x "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
 
-alias kc='kubectl'
-alias kcc='kc config'
-alias kcccc='kcc current-context'
-alias kccgc='kcc get-clusters'
-alias kccuc='kcc use-context'
-alias kcd='kc describe'
-alias kcg='kc get'
-alias gc='gcloud'
+  alias kc='kubectl'
+  alias kcc='kc config'
+  alias kcccc='kcc current-context'
+  alias kccgc='kcc get-clusters'
+  alias kccuc='kcc use-context'
+  alias kcd='kc describe'
+  alias kcg='kc get'
+  alias gc='gcloud'
+fi
 
 tmux_unzoom() {
   if $(tmux list-panes -F '#F' | grep -q Z); then
