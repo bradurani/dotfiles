@@ -17,8 +17,7 @@ eval "$(rbenv init - --no-rehash)"
 # export PATH="$PATH:`yarn global bin`"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  synclient VertEdgeScroll=0
-  /usr/bin/setxkbmap -option "caps:swapescape"
+ # /usr/bin/setxkbmap -option "caps:swapescape"
 fi
 
 export KEYTIMEOUT=5 #lower delay for vim mode switches
