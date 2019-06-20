@@ -17,13 +17,16 @@ eval "$(rbenv init - --no-rehash)"
 # export PATH="$PATH:`yarn global bin`"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
- # /usr/bin/setxkbmap -option "caps:swapescape"
+  /usr/bin/setxkbmap -option "caps:swapescape"
 fi
 
 export KEYTIMEOUT=5 #lower delay for vim mode switches
 
 # export JAVA_HOME=$(/usr/libexec/java_home)
 export PGDATA=/usr/local/var/postgres
+
+# echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+# echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 
 if [[ -a ~/.localrc ]]
 then

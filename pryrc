@@ -16,11 +16,11 @@ Pry.commands.alias_command "hr", "hist -r", desc: "hist -r <command number> to r
 #   _pry_.run_command Pry.history.to_a.last
 # end
 
-Pry.config.prompt = Pry::NAV_PROMPT
+# Pry.config.prompt = Pry::NAV_PROMPT
 
 # gem install pry-theme
 # pry-theme install xoria256 #from inside pry
-Pry.config.theme = "xoria256"
+# Pry.config.theme = "xoria256"
 
 begin
   require 'awesome_print'

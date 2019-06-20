@@ -8,6 +8,7 @@ Plug 'jgdavey/tslime.vim'
 
 Plug 'tmhedberg/matchit'
 Plug 'kana/vim-textobj-user'
+
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
