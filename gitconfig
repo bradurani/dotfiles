@@ -27,3 +27,5 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[branch]
+	autoSetupMerge = always
