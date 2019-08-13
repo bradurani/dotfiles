@@ -1,0 +1,4 @@
+if [ -f ~/.bash/completions/_hub ]; then
+  echo "AHHHHH"
+  . ~/.bash/completions/_hub
+fi
