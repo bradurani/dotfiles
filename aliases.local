@@ -57,6 +57,8 @@ alias td3='tre -d -L 3'
 alias td4='tre -d -L 4'
 alias td5='tre -d -L 5'
 
+alias rubodiff='g dfom --name-only | xargs bundle exec rubocop'
+
 function tree-git-ignore {
     # tree respecting gitignore
 
