@@ -76,16 +76,11 @@ tre() {
   tree -aC -I "$(cat ~/.treeignore)" --dirsfirst "$@" | less -FRNX
 }
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  alias copy='xclip -sel clip'
-  alias paste='xclip -o'
-  alias pbcopy='xclip -sel clip'
-  alias pbpaste='xclip -o'
-  alias fiddler='nohup mono ~/src/fiddler/Fiddler.exe > /dev/null 2>&1 &'
-else
-  alias copy='pbcopy'
-  alias paste='pbpaste'
-fi
+alias copy='xclip -sel clip'
+alias paste='xclip -o'
+alias pbcopy='xclip -sel clip'
+alias pbpaste='xclip -o'
+alias fiddler='nohup mono ~/src/fiddler/Fiddler.exe > /dev/null 2>&1 &'
 
 # Create a new directory and enter it
 mkd() {

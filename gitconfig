@@ -27,3 +27,5 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[protocol]
+	version = 2

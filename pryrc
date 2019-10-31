@@ -53,10 +53,10 @@ else
 end
 
 
-def time(repetitions = 100, &block)
-  require 'benchmark'
-  Benchmark.bm{|b| b.report{repetitions.times(&block)}}
-end
+# def time(repetitions = 100, &block)
+#   require 'benchmark'
+#   Benchmark.bm{|b| b.report{repetitions.times(&block)}}
+# end
 
 Pry::Commands.command "sql", "Send sql over AR." do |query|
   if ENV['RAILS_ENV'] || defined?(Rails)
