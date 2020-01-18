@@ -3,6 +3,8 @@
   email = bradurani@gmail.com
 [pull]
   default = curent
+[push]
+  default = current
 [merge]
   ff = yes
 [color "diff"]
