@@ -30,6 +30,10 @@ alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dc='docker-compose'
 
+# minkube
+alias mk='minikube'
+alias mkc='minikube kubectl'
+
 #terraform
 alias tf='terraform'
 
