@@ -10,7 +10,7 @@ bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -in -selection 
 
 # Inverse colors for selected window
 # set-window-option -g window-status-current-bg '#5fafff'
-set-window-option -g window-status-current-fg '#ffffff'
+set-window-option -g window-status-current-style 'fg=#ffffff'
 set -g status-bg '#006400'
 # set -g status-fg '#aaaaaa'
 

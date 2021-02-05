@@ -7,6 +7,7 @@ brew 'wget'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting' #colors shell commands red or green depending on if they're valid
 brew 'pv'
+brew 'ctags'
 
 # source highlighting for less
 brew 'source-highlight'
