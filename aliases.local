@@ -63,6 +63,8 @@ alias td5='tre -d -L 5'
 
 alias rubodiff='g dfom --name-only | xargs bundle exec rubocop'
 
+alias avro="java -jar ~/src/avro-tools-1.10.1.jar"
+
 function tree-git-ignore {
     # tree respecting gitignore
 
@@ -80,11 +82,11 @@ tre() {
   tree -aC -I "$(cat ~/.treeignore)" --dirsfirst "$@" | less -FRNX
 }
 
-alias copy='xclip -sel clip'
-alias paste='xclip -o'
-alias pbcopy='xclip -sel clip'
-alias pbpaste='xclip -o'
-alias fiddler='nohup mono ~/src/fiddler/Fiddler.exe > /dev/null 2>&1 &'
+# alias copy='xclip -sel clip'
+# alias paste='xclip -o'
+# alias pbcopy='xclip -sel clip'
+# alias pbpaste='xclip -o'
+# alias fiddler='nohup mono ~/src/fiddler/Fiddler.exe > /dev/null 2>&1 &'
 
 # Create a new directory and enter it
 mkd() {
@@ -107,6 +109,14 @@ man() {
 serve() {
   python2 -m SimpleHTTPServer "$@"
 }
+
+if [ -x "$(command -v skaffold)" ]; then
+  source <(skaffold completion zsh)
+fi
+
+if [ -x "$(command -v helm)" ]; then
+  source <(helm completion zsh)
+fi
 
 if [ -x "$(command -v kubectl)" ]; then
   source <(kubectl completion zsh)

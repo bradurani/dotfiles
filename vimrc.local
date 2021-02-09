@@ -435,3 +435,8 @@ if has('nvim')
 else
   let test#strategy = "tslime"
 endif
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'ag --hidden --column --numbers --noheading --color --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
