@@ -114,6 +114,10 @@ if [ -x "$(command -v skaffold)" ]; then
   source <(skaffold completion zsh)
 fi
 
+if [ -x "$(command -v circleci)" ]; then
+  source <(circleci completion zsh)
+fi
+
 if [ -x "$(command -v helm)" ]; then
   source <(helm completion zsh)
 fi

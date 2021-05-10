@@ -440,3 +440,7 @@ command! -bang -nargs=* Ag
   \ call fzf#vim#grep(
   \   'ag --hidden --column --numbers --noheading --color --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
