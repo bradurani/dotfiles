@@ -52,19 +52,19 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 
 Plug 'honza/dockerfile.vim'
-Plug 'ElmCast/elm-vim'
+" Plug 'ElmCast/elm-vim'
 Plug 'exu/pgsql.vim'
 
 "elixir
 " Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
+" Plug 'slashmili/alchemist.vim'
 
 "Ruby
 Plug 'ngmy/vim-rubocop'
 Plug 'ecomba/vim-ruby-refactoring'
 
 "Rust
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
