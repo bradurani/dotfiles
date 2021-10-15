@@ -2,7 +2,7 @@
   templatedir = ~/.git_template
 	defaultBranch = main
 [push]
-  default = current
+  default = upstream
 [color]
   ui = auto
 [alias]
@@ -32,3 +32,5 @@
 	version = 2
 [pull]
   rebase = false
+[branch]
+	autoSetupMerge = always
