@@ -17,10 +17,10 @@ alias ..='cd ..'
 alias be='bundle exec'
 
 #elixir
-alias iexm='iex -S mix'
-alias iexs='iex -S mix phoenix.server'
-alias iext='iex -S mix test'
-alias mixs='mix phoenix.server'
+# alias iexm='iex -S mix'
+# alias iexs='iex -S mix phoenix.server'
+# alias iext='iex -S mix test'
+# alias mixs='mix phoenix.server'
 
 #docker
 alias d='docker'
@@ -31,8 +31,8 @@ alias dcu='docker-compose up'
 alias dc='docker-compose'
 
 # minkube
-alias mk='minikube'
-alias mkc='minikube kubectl'
+# alias mk='minikube'
+# alias mkc='minikube kubectl'
 
 #terraform
 alias tf='terraform'
@@ -41,7 +41,7 @@ alias tf='terraform'
 alias ag='ag --path-to-ignore=~/.agignore'
 
 #python
-alias py=python3
+# alias py=python3
 
 #psql
 alias psql="PAGER=\"less -iMSx4 -FX\" psql"
@@ -149,4 +149,4 @@ fbr() {
 }
 
 # Python
-alias prp="pipenv run python"
+# alias prp="pipenv run python"
