@@ -9,7 +9,7 @@ brew 'jq'
 brew 'cowsay'
 brew "rbenv"
 brew "tmux" 
-
+brew "the_silver_searcher"
 brew 'gist'
 
 # Programming languages
