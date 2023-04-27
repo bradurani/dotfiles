@@ -16,14 +16,25 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
-" Plug 'ctrlpvim/ctrlp.vim'
+
+" If fzf has already been installed via Homebrew, use the existing fzf
+" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
+if executable("brew")
+  let g:brew_fzf_path = trim(system("brew --prefix fzf"))
+endif
+
+if exists("g:brew_fzf_path") && isdirectory(g:brew_fzf_path)
+  Plug g:brew_fzf_path
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
+
+Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
-" Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
-" Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
@@ -38,7 +49,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 
 if g:has_async
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))

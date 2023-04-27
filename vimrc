@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 " Leader
 let mapleader = " "
 
@@ -11,6 +13,8 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set modelines=0   " Disable modelines as a security precaution
+set nomodeline
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -43,7 +47,11 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-  autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/* set filetype=sh
+  autocmd BufRead,BufNewFile
+    \ aliases.local,
+    \zshenv.local,zlogin.local,zlogout.local,zshrc.local,zprofile.local,
+    \*/zsh/configs/*
+    \ set filetype=sh
   autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
@@ -54,8 +62,9 @@ augroup ale
   autocmd!
 
   if g:has_async
-    set updatetime=4000
-    let g:ale_lint_on_text_changed = 0
+    autocmd VimEnter *
+      \ set updatetime=1000 |
+      \ let g:ale_lint_on_text_changed = 0
     autocmd CursorHold * call ale#Queue(0)
     autocmd CursorHoldI * call ale#Queue(0)
     autocmd InsertEnter * call ale#Queue(0)
@@ -82,21 +91,15 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set nojoinspaces
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-" if executable('ag')
-"   " Use Ag over Grep
-"   set grepprg=ag\ --nogroup\ --nocolor
-"
-"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"   let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-"
-"   " ag is fast enough that CtrlP doesn't need to cache
-"   let g:ctrlp_use_caching = 0
-"
-"   if !exists(":Ag")
-"     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-"     nnoremap \ :Ag<SPACE>
-"   endif
-" endif
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+
+  nnoremap \ :Ag<SPACE>
+endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -147,6 +150,9 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" Set tags for vim-fugitive
+set tags^=.git/tags
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -160,6 +166,9 @@ nnoremap <C-l> <C-w>l
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
+
+" Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <c-p> :Files<cr>
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.

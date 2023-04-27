@@ -15,13 +15,12 @@ Instalar
 
 Clona en tu laptop:
 
-    git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
+    git clone git@github.com:thoughtbot/dotfiles.git ~/dotfiles
 
 (o [haz un fork y mantenlo actualizado](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
 
 Instala [rcm](https://github.com/thoughtbot/rcm):
 
-    brew tap thoughtbot/formulae
     brew install rcm
 
 Instala los dotfiles:
@@ -124,7 +123,7 @@ Para extender tus `git` hooks, crea scripts ejecutables en
 Tu `~/dotfiles-local/zshrc.local` tal vez se vea así:
 
     # load pyenv if available
-    if which pyenv &>/dev/null ; then
+    if command -v pyenv &>/dev/null ; then
       eval "$(pyenv init -)"
     fi
 
@@ -177,12 +176,12 @@ sin importar de nombre del archivo:
     set cinoptions=:0,t0,+4,(4
     autocmd BufNewFile,BufRead *.[ch] setlocal sw=0 ts=8 noet
 
-Qué tiene dentro?
+¿Qué viene incluido?
 -----------------
 
 Configuración [vim](http://www.vim.org/):
 
-* [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) para hallazgo difuso de archivos/buffer/tags.
+* [fzf](https://github.com/junegunn/fzf.vim) para hallazgo difuso de archivos/buffer/tags.
 * [Rails.vim](https://github.com/tpope/vim-rails) para una mejor navegación de la estructura
 de archivos de Rails via `gf` y `:A` (alterno), `:Rextract` parciales,`:Rinvert` migraciones, etc.
 * Ejecuta muchos tipos de pruebas [desde vim]([https://github.com/janko-m/vim-test)
@@ -224,7 +223,7 @@ Alias de Shell y scripts:
 
 * `b` para `bundle`.
 * `g` sin argumentos es `git status` y con argumentos funciona como `git`.
-* `migrate` para `rake db:migrate && rake db:rollback && rake db:migrate`.
+* `migrate` para `bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare`.
 * `mcd` para crear un directorio e ir a él.
 * `replace foo bar **/*.rb` para buscar y reemplazar en una lista dada de archivos.
 * `tat` para adjuntar a una sesión de tmux llamada igual que el directorio actual.

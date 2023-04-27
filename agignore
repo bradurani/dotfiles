@@ -12,3 +12,4 @@ elm-stuff/
 deps/
 .idea/
 .ensime_cache
+/vendor

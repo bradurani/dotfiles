@@ -36,14 +36,13 @@ Install
 
 Clone onto your laptop:
 
-    git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
+    git clone git@github.com:thoughtbot/dotfiles.git ~/dotfiles
 
 (Or, [fork and keep your fork
 updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
 
 Install [rcm](https://github.com/thoughtbot/rcm):
 
-    brew tap thoughtbot/formulae
     brew install rcm
 
 Install the dotfiles:
@@ -59,7 +58,7 @@ This command will create symlinks for config files in your home directory.
 Setting the `RCRC` environment variable tells `rcup` to use standard
 configuration options:
 
-* Exclude the `README.md` and `LICENSE` files, which are part of
+* Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
   the `dotfiles` repository but do not need to be symlinked in.
 * Give precedence to personal overrides which by default are placed in
   `~/dotfiles-local`
@@ -202,7 +201,7 @@ What's in it?
 
 [vim](http://www.vim.org/) configuration:
 
-* [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) for fuzzy file/buffer/tag finding.
+* [fzf](https://github.com/junegunn/fzf.vim) for fuzzy file/buffer/tag finding.
 * [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
   Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
   `:Rinvert` migrations, etc.
@@ -212,7 +211,7 @@ What's in it?
 * Syntax highlighting for Markdown, HTML, JavaScript, Ruby, Go, Elixir, more.
 * Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
   available.
-* Map `<leader>ct` to re-index [Exuberant Ctags](http://ctags.sourceforge.net/).
+* Map `<leader>ct` to re-index ctags.
 * Use [vim-mkdir](https://github.com/pbrisbin/vim-mkdir) for automatically
   creating non-existing directories before writing the buffer.
 * Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
@@ -246,7 +245,7 @@ Shell aliases and scripts:
 
 * `b` for `bundle`.
 * `g` with no arguments is `git status` and with arguments acts like `git`.
-* `migrate` for `rake db:migrate && rake db:rollback && rake db:migrate`.
+* `migrate` for `bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare`.
 * `mcd` to make a directory and change into it.
 * `replace foo bar **/*.rb` to find and replace within a given list of files.
 * `tat` to attach to tmux session named the same as the current directory.
@@ -271,7 +270,7 @@ redistributed under the terms specified in the [`LICENSE`] file.
 About thoughtbot
 ----------------
 
-![thoughtbot](http://presskit.thoughtbot.com/images/thoughtbot-logo-for-readmes.svg)
+![thoughtbot](https://thoughtbot.com/brand_assets/93:44.svg)
 
 dotfiles is maintained and funded by thoughtbot, inc.
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
