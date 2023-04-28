@@ -1,3 +1,4 @@
+brew "rcm"
 brew "neovim"
 brew 'watch'
 brew 'tree'
