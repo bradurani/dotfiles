@@ -19,11 +19,11 @@ Plug 'kshenoy/vim-signature'
 Plug 'bradurani/vim-powerclose', { 'branch': 'master' }
 Plug 'chaoren/vim-wordmotion'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'AndrewRadev/switch.vim'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'mcasper/vim-infer-debugger'
 " Plug 'Valloric/YouCompleteMe'
+Plug 'github/copilot.vim'
 
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

@@ -25,9 +25,6 @@ export KEYTIMEOUT=5 #lower delay for vim mode switches
 # export JAVA_HOME=$(/usr/libexec/java_home)
 export PGDATA=/usr/local/var/postgres
 
-# echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
-# echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
-
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc

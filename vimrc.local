@@ -112,9 +112,9 @@ let g:alchemist#elixir_erlang_src = '/usr/local/Cellar/elixir/1.5.1'
 
 "vim-test
 "
-let test#ruby#rspec#executable = 'tmux_unzoom; bundle exec rspec'
+let test#ruby#rspec#executable = 'bundle exec rspec'
 " let test#elixir#exunit#executable = 'iex -S mix test --trace'
-let test#elixir#exunit#executable = 'tmux_unzoom; mix test'
+let test#elixir#exunit#executable = 'mix test'
 let test#filename_modifier = ':~'
 
 "vim-ale
