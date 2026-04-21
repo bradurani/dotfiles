@@ -3,3 +3,13 @@
 export PATH="/opt/homebrew/bin:$PATH"
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+g() {
+  if [ $# -eq 0 ]; then
+    git status --short --branch
+  elif [ "$1" = "root" ]; then
+    cd "$(git rev-parse --show-toplevel 2>/dev/null)" || return
+  else
+    git "$@"
+  fi
+}
