@@ -1,0 +1,6 @@
+[data]
+name = "Brad"
+email = ""
+
+[git]
+autoCommit = false

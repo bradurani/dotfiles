@@ -1,0 +1,6 @@
+[user]
+	name = Brad
+	email = 
+
+[init]
+	defaultBranch = main

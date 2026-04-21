@@ -1,3 +1,0 @@
-EXCLUDES="README*.md LICENSE Gemfile Gemfile.lock Gitfile Brewfile"
-DOTFILES_DIRS="$HOME/src/dotfiles-local $HOME/src/dotfiles"
-COPY_ALWAYS="git_template/HEAD"

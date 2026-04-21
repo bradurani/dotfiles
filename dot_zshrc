@@ -1,0 +1,5 @@
+# Chezmoi-managed .zshrc
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
