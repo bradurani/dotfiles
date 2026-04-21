@@ -14,3 +14,6 @@ g() {
   fi
 }
 alias e='nvim'
+
+# OpenClaw completion
+[ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
