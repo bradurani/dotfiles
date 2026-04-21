@@ -1,10 +1,10 @@
 [user]
-	name = Brad
-	email = 
+	name = Brad Urani
+	email = bradurani@gmail.com
 
 [init]
 	defaultBranch = main
+
 [push]
 	autoSetupRemote = true
 	default = current
-
