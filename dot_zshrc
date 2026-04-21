@@ -13,3 +13,4 @@ g() {
     git "$@"
   fi
 }
+alias e='nvim'
