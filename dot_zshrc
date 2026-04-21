@@ -16,14 +16,25 @@ g() {
 alias e='nvim'
 
 # Completion paths
-fpath=(
-  /opt/homebrew/completions/zsh
-  /opt/homebrew/share/zsh/site-functions
-  /opt/homebrew/share/zsh-completions
-  $(brew --prefix)/share/zsh/site-functions
-  $fpath
-)
+if command -v brew >/dev/null 2>&1; then
+  local_brew_prefix=$(brew --prefix)
+  local_completion_dirs=(
+    /opt/homebrew/completions/zsh
+    /opt/homebrew/share/zsh/site-functions
+    /opt/homebrew/share/zsh-completions
+    "$local_brew_prefix/share/zsh/site-functions"
+  )
+  for dir in $local_completion_dirs; do
+    [ -d "$dir" ] && fpath=("$dir" $fpath)
+  done
+fi
 autoload -Uz compinit
+fpath=(${^fpath}(N-/))
+local -a _insecure_compdirs
+_insecure_compdirs=($(compaudit 2>/dev/null))
+if (( ${#_insecure_compdirs} )); then
+  fpath=(${fpath:|_insecure_compdirs})
+fi
 compinit
 
 # OpenClaw completion
