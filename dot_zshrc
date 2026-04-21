@@ -15,5 +15,16 @@ g() {
 }
 alias e='nvim'
 
+# Completion paths
+fpath=(
+  /opt/homebrew/completions/zsh
+  /opt/homebrew/share/zsh/site-functions
+  /opt/homebrew/share/zsh-completions
+  $(brew --prefix)/share/zsh/site-functions
+  $fpath
+)
+autoload -Uz compinit
+compinit
+
 # OpenClaw completion
 [ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
