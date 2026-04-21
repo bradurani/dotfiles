@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+mapping='[
+  {
+    "HIDKeyboardModifierMappingSrc": 0x7000000E2,
+    "HIDKeyboardModifierMappingDst": 0x7000000E3
+  },
+  {
+    "HIDKeyboardModifierMappingSrc": 0x7000000E3,
+    "HIDKeyboardModifierMappingDst": 0x7000000E2
+  },
+  {
+    "HIDKeyboardModifierMappingSrc": 0x7000000E6,
+    "HIDKeyboardModifierMappingDst": 0x7000000E7
+  },
+  {
+    "HIDKeyboardModifierMappingSrc": 0x7000000E7,
+    "HIDKeyboardModifierMappingDst": 0x7000000E6
+  }
+]'
+
+current=$(hidutil property --get 'UserKeyMapping' 2>/dev/null | tr -d '[:space:]' || echo 'null')
+
+if [[ "$current" == "null" || "$current" == "()" ]]; then
+  hidutil property --set "{\"UserKeyMapping\":$mapping}"
+  echo "Keyboard swap enabled: Alt -> Command, Windows -> Option"
+else
+  hidutil property --set '{"UserKeyMapping":[]}'
+  echo "Keyboard swap disabled: default modifier mapping restored"
+fi
