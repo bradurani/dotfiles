@@ -1,0 +1,5 @@
+# Local machine noise
+.DS_Store
+
+# Do not commit private Chezmoi-managed files by accident
+private_*
