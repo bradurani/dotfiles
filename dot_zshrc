@@ -40,3 +40,14 @@ chrome() {
   sleep 1
   open -na "Google Chrome" --args --restore-last-session --remote-debugging-port=9222 --user-data-dir="$HOME/Library/Application Support/Google/Chrome"
 }
+
+autoload -Uz colors && colors
+setopt PROMPT_SUBST
+
+git_branch() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
+  echo " (%F{magenta}${branch}%f)"
+}
+
+PROMPT='%F{cyan}%~%f$(git_branch) %# '
