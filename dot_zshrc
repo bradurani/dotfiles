@@ -28,3 +28,15 @@ compinit
 
 # OpenClaw completion
 [ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
+
+chrome() {
+  local debug_url="http://127.0.0.1:9222/json/version"
+  if curl -fsS "$debug_url" >/dev/null 2>&1; then
+    open -a "Google Chrome"
+    return 0
+  fi
+
+  osascript -e 'tell application "Google Chrome" to quit' >/dev/null 2>&1 || true
+  sleep 1
+  open -na "Google Chrome" --args --restore-last-session --remote-debugging-port=9222 --user-data-dir="$HOME/Library/Application Support/Google/Chrome"
+}
