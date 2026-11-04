@@ -30,6 +30,12 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.3
 
+# --- Menu bar ----------------------------------------------------------------
+# Never auto-hide the menu bar, including in full-screen apps
+# (System Settings > Menu Bar > Automatically hide and show the menu bar: Never).
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
+defaults write NSGlobalDomain AppleMenuBarVisibleInFullscreen -bool true
+
 # --- Screenshots -------------------------------------------------------------
 mkdir -p "$HOME/Screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Screenshots"
