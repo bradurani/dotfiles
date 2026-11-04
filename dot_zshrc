@@ -1,6 +1,6 @@
 # Chezmoi-managed .zshrc
 
-export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@24/bin:/opt/homebrew/bin:$HOME/.local/bin:$PATH"
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
@@ -37,8 +37,15 @@ if (( ${#_insecure_compdirs} )); then
 fi
 compinit
 
-# OpenClaw completion
-[ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
+# OpenClaw completion: regenerate whenever the installed openclaw is newer than the cached script
+if (( $+commands[openclaw] )); then
+  _openclaw_comp="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}/completions/openclaw.zsh"
+  if [[ ! -s "$_openclaw_comp" || "${commands[openclaw]:A}" -nt "$_openclaw_comp" ]]; then
+    openclaw completion --write-state -s zsh >/dev/null 2>&1
+  fi
+  [[ -s "$_openclaw_comp" ]] && source "$_openclaw_comp"
+  unset _openclaw_comp
+fi
 
 chrome() {
   local debug_url="http://127.0.0.1:9222/json/version"
